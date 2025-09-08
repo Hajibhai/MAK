@@ -1,0 +1,7 @@
+{
+  "name": "MAK",
+  "description": "MAK: Your powerful transcription and translation assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

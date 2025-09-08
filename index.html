@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* For Webkit-based browsers (Chrome, Safari) */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      html.dark ::-webkit-scrollbar-track {
+        background: #27272a; /* zinc-800 */
+      }
+      html:not(.dark) ::-webkit-scrollbar-track {
+        background: #e4e4e7; /* zinc-200 */
+      }
+
+      html.dark ::-webkit-scrollbar-thumb {
+        background: #52525b; /* zinc-600 */
+        border-radius: 4px;
+      }
+       html:not(.dark) ::-webkit-scrollbar-thumb {
+        background: #a1a1aa; /* zinc-400 */
+        border-radius: 4px;
+      }
+
+      html.dark ::-webkit-scrollbar-thumb:hover {
+        background: #71717a; /* zinc-500 */
+      }
+      html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+        background: #71717a; /* zinc-500 */
+      }
+      
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+        }
+      }
+      .animate-pulse-ring {
+        animation: pulse-ring 2s infinite;
+      }
+    </style>
+    <script>
+      // Set theme on page load to prevent flashing
+      if (localStorage.getItem('mak-theme') === 'dark' || (!('mak-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "remark-gfm": "https://aistudiocdn.com/remark-gfm@^4.0.1",
+    "react-syntax-highlighter/": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6/",
+    "react-syntax-highlighter": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6"
+  }
+}
+</script>
+</head>
+  <body class="bg-white dark:bg-zinc-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
